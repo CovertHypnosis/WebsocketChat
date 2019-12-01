@@ -1,0 +1,77 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #355664;
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+    background-color: #213E4A;
+    border-radius: 12px;
+}
+
+.chat-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 12px;
+    min-height: 97vh;
+}
+
+.user-list {
+    list-style-type: none;
+    text-align: center;
+}
+
+.user-list li {
+    margin: 4px;
+}
+
+.user-list li a {
+    width: 200px;
+}
+
+.user-title {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.page-title {
+    margin: 10px 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+}
+
+article[class*="message"] {
+    margin: 10px 20px;
+    background-color: #355664;
+    border-radius: 10px;
+}
+
+article span {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #ead4d4;
+}
+
+article p {
+    margin-top: 5px;
+    padding-bottom: 6px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: #dce3ea;
+    text-align: left;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rooms</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/room.css}"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="chat-wrapper">
+        <div class="row">
+            <aside class="col-3">
+                <ul class="user-list" th:each="user: ${room.getUsers()}">
+                    <li><a th:href="@{'private/' + ${user.getId()}}" th:text="${user.getUsername()}" class="btn btn-success user-title"></a></li>
+                </ul>
+            </aside>
+
+            <section class="col-9">
+                <div id="chat-page" class="hidden">
+                    <div>
+                        <h1 class="page-title" th:text="${room.getName()}"></h1>
+                        <input type="hidden" id="room_id" th:value="${room.getId()}">
+                        <input type="hidden" id="user_id" th:value="${userId}">
+                    </div>
+
+                    <form id="messageForm" name="messageForm">
+                        <div class="form-group">
+                            <div class="input-group clearfix">
+                                <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control">
+                                <button id="send" class="btn btn-success" style="width: 120px; font-family: 'Roboto', sans-serif; font-weight: bold; letter-spacing: 0.1em; font-style: italic;">SEND</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <article id="content">
+                        <article class="row message" th:each="text: ${messages}">
+                            <div class="col-12">
+                                <span th:text="${text.getDate()}"></span>
+                                <span th:text="${text.getSender().getUsername()}"></span>
+                                <p th:text="${text.getText()}"></p>
+                            </div>
+                        </article>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script th:src="@{/js/room.js}" defer></script>
+</body>
+</html>
